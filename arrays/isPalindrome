@@ -1,0 +1,28 @@
+// is palindrome
+
+/*
+	Reverse string solution
+		- time: O(n)
+		- space: O(n)
+*/
+bool isPalindrome1(string s) {
+	std::string newStr = "";
+
+	for (char c : s) {
+		if (isalnum(c)) {
+			newStr += c;
+		}
+	}
+
+	return newStr == string(newStr.rbegin(), newStr.rend());
+}
+
+
+/*
+	Two pointer solution
+		- time:
+		- space:
+*/
+bool isPalindrome2(std::string s){
+	
+}
