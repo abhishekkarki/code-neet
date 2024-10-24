@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <stack>
+#include <unordered_map>
+
+int main(int argc, char** argv) {
+    std::string s = "{)[]}";
+
+    // define a stack
+    std::stack<char> open;
+
+    // hash table
+    std::unordered_map<char, char> parens = {
+        {']', '['},
+        {'}', '{'},
+        {')', '('}
+    };
+
+    for (const auto c : s) {
+        if (parens.find(c) != parens.end()) {
+            if (open.empty()) {
+                return false;
+            }
+            if (open.top() != parens[c]) {
+                return false;
+            }
+            open.pop();
+        }
+        else {
+            open.push(c);
+        }
+    }
+    return open.empty();
+
+}
+
+
